@@ -3,7 +3,7 @@ const SideBar = () => {
     return(
         <div className="side-bar">
             <h1><Link to="/" class="link">Home</Link></h1>
-            <h1><Link to="/favorites" class="link">Favorites</Link></h1>
+            <h1><Link to="/bestseller" class="link">Best Sellers</Link></h1>
         </div>
     )
 }
