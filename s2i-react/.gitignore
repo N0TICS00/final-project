@@ -1,7 +1,6 @@
 # dependencies
 /node_modules
-# production
-/src/api.js
+
 # misc
 .DS_Store
 npm-debug.log*
