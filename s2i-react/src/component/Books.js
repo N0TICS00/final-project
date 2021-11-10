@@ -11,17 +11,8 @@ const Books = ({title , author , img , p , link , publisher}) => {
             <h1>Title: {title}</h1>
             <h2>Author(s): {author}</h2>
             <h3>Publisher: {publisher}</h3>
-            <Link to={{
-                pathname : `/books/${new Date().getTime().toString()}`,
-                state:{
-                    title,
-                    author,
-                    img,
-                    p,
-                    link,
-                    publisher
-                }
-            }} style={{display:"block"}} state={{title , author , img , p , link }}>
+            <Link to={ `/books/${new Date().getTime().toString()}`}
+               style={{display:"block"}} state={{title , author , img , p , link }}>
                         Read More 
             </Link>           
         </div>

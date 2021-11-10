@@ -8,6 +8,7 @@ import {
 import Book from "./component/Book";
 import SideBar from "./component/SideBar";
 import BestSeller from "./component/BestSeller";
+import Footer from "./component/Footer";
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/bestseller" element={<BestSeller/>}></Route>
           </Routes>
+          <Footer/>
         </Router>
 
     </div>

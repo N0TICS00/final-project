@@ -9,7 +9,6 @@ const SearchForm = () =>{
     const [search , setSearch] = useState("")
     const [query , setQuery] = useState("")
     const [booksArray , setBooksArray] = useState([])
-    const [searchedBook , setSearchedBook] = useState([])
     const url = ` https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKeyGoogle}`
     
     const getBooks = async () =>{
@@ -36,10 +35,7 @@ const SearchForm = () =>{
         e.preventDefault()
         if(search){
             setQuery(search)
-            searchedBook.push(...searchedBook, query)
-            
-            localStorage.setItem("cronology" , JSON.stringify(searchedBook))
-            console.log(searchedBook)
+        
         }
         else(
             console.log("error")
@@ -56,7 +52,13 @@ const SearchForm = () =>{
                 const data = book.volumeInfo
                 return(
                     <div>
-                        <Books title={data.title} author={data.authors ? data.authors : "No author available"} key={new Date().getTime().toString()} img={data.imageLinks ? data.imageLinks.smallThumbnail : imgDef} link={data.canonicalVolumeLink} p={data.description} publisher={data.publisher ? data.publisher : "No Publisher available"}/>
+                        <Books title={data.title} 
+                        author={data.authors ? data.authors : "No author available"} 
+                        key={new Date().getTime().toString()} 
+                        img={data.imageLinks ? data.imageLinks.smallThumbnail : imgDef} 
+                        link={data.canonicalVolumeLink} 
+                        p={data.description} 
+                        publisher={data.publisher ? data.publisher : "No Publisher available"}/>
                     </div>
                     
                     

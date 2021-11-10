@@ -5,8 +5,7 @@ import { Link } from "react-router-dom"
 const Book = () => {
     const location = useLocation()
     const data = location.state
-    localStorage.setItem("ci" , 1)
-    
+
     return(
 
             <div className="item" key={new Date().getTime().toString()}>
@@ -19,7 +18,7 @@ const Book = () => {
             <Link to="/">
                 <button className="button-book">Search another book</button>
             </Link>
-            <a href={data.link}><button className="button-book">Go to Google Books</button></a>
+            <a href={data.link}><button className="button-book">Go to Google Books/Amazon</button></a>
             </div>
         </div>
 
