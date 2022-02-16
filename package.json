@@ -1,0 +1,19 @@
+{
+  "name": "start2impact",
+  "version": "1.0.0",
+  "description": "https://a-book-for-friend.herokuapp.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N0TICS00/a-book-for-friend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N0TICS00/a-book-for-friend/issues"
+  },
+  "homepage": "https://github.com/N0TICS00/a-book-for-friend#readme"
+}
