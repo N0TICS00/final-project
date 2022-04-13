@@ -16,6 +16,10 @@ class CoursesController extends Controller
         $resp = Course::create($request->all());
         return response()->json($resp, 201);
     }
+    public function update(Request $request, Course $course){
+        $course->update($request->all());
+        return response()->json($course, 200);
+    }
     public function delete(Course $course){
         $course->delete();
         return response()->json(null,204);

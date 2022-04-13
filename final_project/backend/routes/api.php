@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/courses', [CoursesController::class,'index']);
 Route::get('/courses/{course}', [CoursesController::class,'show']);
 Route::post('/courses', [CoursesController::class,'store']);
+Route::put('courses/{course}', [CoursesController::class,'update']);
 Route::delete('/courses/{course}',[CoursesController::class,'delete']);
 //USERS API
 Route::get('/users',  [UsersController::class,'index']);
