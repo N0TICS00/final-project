@@ -18,7 +18,7 @@ class CoursesTableSeeder extends Seeder
         // Create 50 course records
         for ($i = 0; $i < 50; $i++) {
             Course::create([
-                'course_name' => $faker->text($maxNbChars = 80),
+                'course_name' => $faker->text($maxNbChars = 30),
                 'description' => $faker->paragraph,
                 'creator' => $faker->text($maxNbChars = 20),
             ]);
