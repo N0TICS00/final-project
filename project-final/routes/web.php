@@ -22,3 +22,6 @@ Route::get('/courses', function(){
 Route::get('/', function(){
     return view('home');
 });
+Route::get('/users/delete', function(){
+    return view('user/delete');
+});
