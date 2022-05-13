@@ -14,11 +14,20 @@ class Courses extends React.Component{
             
         })
     }   
+    deleteCourse(id){
+        axios.delete(`api/courses/${id}`).then(response=>{
+            console.log(response)
+            window.location.reload(false);
+          }).catch(err=>{
+            console.log(err)
+          })
+    }
     renderProducts(){
         return this.state.courses.map(course=>{
-            return <li key={course.id}>{course.name}</li>
+            return <li key={course.id}><p>{course.name}</p> <button onClick={()=>this.deleteCourse(course.id)}>Delete</button></li>
         })
     }
+    
     render(){
 
         return(

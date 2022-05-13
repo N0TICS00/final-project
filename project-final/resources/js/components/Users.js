@@ -14,9 +14,18 @@ class Users extends React.Component{
             
         })
     }   
+    deleteUser(id){
+
+        axios.delete(`api/users/${id}`).then(response=>{
+            console.log(response)
+            window.location.reload(false);
+          }).catch(err=>{
+            console.log(err)
+          })
+    }
     renderProducts(){
         return this.state.users.map(user=>{
-            return <li key={user.id}>{user.name}</li>
+            return <li key={user.id}><p>{user.name}</p> <button onClick={()=>this.deleteUser(user.id)}>Delete</button></li>
         })
     }
     render(){

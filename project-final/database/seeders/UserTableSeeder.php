@@ -20,7 +20,8 @@ class UserTableSeeder extends Seeder
             User::create([
                 'name' => $faker->name(),
                 'email' => $faker->safeEmail(),
-                'password' => $faker->password()
+                'password' => $faker->password(),
+                'admin' => false
             ]);
         }
     }
