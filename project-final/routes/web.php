@@ -12,13 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// API INTERFACE
 Route::get('/users', function () {
     return view('user/users');
 });
 Route::get('/courses', function(){
     return view('course/courses');
 });
+Route::get('/users/create', function(){
+    return view('user/create');
+});
+
+//PAGE
 Route::get('/', function(){
     return view('home');
 });

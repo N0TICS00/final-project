@@ -1,0 +1,629 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  h1 {
+    position: relative;
+    font-family: "Raleway", sans-serif;
+    font-weight: 200 !important;
+    text-align: center;
+    font-size: 48px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #3EA104;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e4e4e4;
+    border-radius: 5px;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+    color: #FF7F3F;
+  }
+  
+  /*Waves*/
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 400px;
+  }
+  
+  /* Animation */
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  }
+  
+  .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  
+  .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  
+  .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  
+  .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+  /*Shrinking for mobile*/
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+  
+    .content {
+      height: 30vh;
+    }
+  }
+  /*Other*/
+  .unique-color-dark {
+    background-color: #FF7F3F !important;
+  }
+  
+  .bg-light {
+    background-color: #FF7F3F !important;
+  }
+  
+  .navbar-brand {
+    color: white;
+  }
+  
+  .custom-color {
+    background-color: #FF7F3F !important;
+  }
+  
+  .navbar-h1 {
+    position: relative;
+    top: 20% !important;
+  }
+  
+  #home-page {
+    text-align: center;
+    position: relative;
+    height: 975px;
+    color: white;
+    background-image: url("/assets/img/photo-home.jpg");
+    background-size: cover;
+  }
+  #home-page h1 {
+    position: relative;
+    top: 30%;
+    bottom: 30%;
+    font-size: 96px;
+  }
+  #home-page .button {
+    color: white;
+    position: relative;
+    top: 32%;
+    background-color: #3EA104;
+    width: 160px;
+    height: 50px;
+  }
+  #home-page .down {
+    text-align: center;
+    position: relative;
+    width: 100px;
+    height: 75px;
+    display: block;
+    top: 35%;
+    left: 40%;
+  }
+  #home-page .navbar-brand {
+    margin-left: 25%;
+    font-size: 48px;
+    color: white;
+  }
+  
+  #home-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.65;
+    background-color: #FF7F3F;
+  }
+  
+  #story {
+    margin-top: 100px;
+    text-align: center;
+    padding: 0px 25px;
+  }
+  #story .story-img {
+    height: 400px;
+    margin: 20px;
+  }
+  
+  #experience {
+    text-align: center;
+    padding: 25px;
+  }
+  
+  #discover {
+    text-align: center;
+  }
+  #discover .btn {
+    background-color: #FF7F3F;
+    color: white;
+    margin-top: 10px;
+  }
+  #discover input {
+    border: solid 2px;
+    border-color: #FF7F3F;
+    border-radius: 10px;
+  }
+  
+  .courses {
+    padding-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .courses .card {
+    position: relative;
+    margin-bottom: 50px;
+    width: 400px;
+  }
+  .courses .card h5 {
+    font-size: 24px;
+  }
+  .courses .card div {
+    position: relative;
+  }
+  .courses .card .btn {
+    background-color: #FF7F3F;
+    color: white;
+  }
+  .courses .card .card-img-top {
+    width: 399px;
+    height: 300px;
+    background-size: cover;
+  }
+  .courses .card .card-img-top::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: #FF7F3F;
+    opacity: 0.45;
+  }
+  .courses .card #first-image {
+    background-image: url("/assets/img/html-css.jpg");
+  }
+  .courses .card #second-image {
+    background-image: url("/assets/img/js-basics.jpg");
+  }
+  
+  #teacher {
+    text-align: center;
+    padding-top: 15%;
+    padding: 50px;
+  }
+  #teacher .teacher-img {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    outline-style: solid;
+    outline-color: #FF7F3F;
+    outline-width: 5px;
+  }
+  
+  #faq-home {
+    margin-top: 50px;
+  }
+  
+  #form {
+    margin-top: 70px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #form input {
+    border: solid 2px;
+    border-color: #FF7F3F;
+    border-radius: 10px;
+  }
+  #form .btn {
+    background-color: #FF7F3F;
+    color: white;
+  }
+  #form a {
+    color: #FF7F3F;
+  }
+  
+  #navbar .navbar {
+    background-color: #FF7F3F !important;
+  }
+  
+  #faq {
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+  
+  .video {
+    width: 100%;
+  }
+  
+  .login {
+    margin-top: 300px;
+  }
+  
+  .alert {
+    margin-left: 38%;
+    width: 450px;
+  }
+  
+  #explanation {
+    margin-top: 20px;
+    text-align: center;
+  }
+  #explanation p {
+    padding: 25px;
+  }
+  
+  #showcase {
+    margin-top: 50px;
+    text-align: center;
+  }
+  #showcase .card {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+  }
+  #showcase .card .icon {
+    width: 32px;
+    height: 32px;
+    color: #FF7F3F;
+  }
+  
+  #reasons {
+    text-align: center;
+  }
+  #reasons h1 {
+    padding: 0 20px;
+  }
+  
+  #people {
+    margin-top: 50px;
+  }
+  #people .carousel-item {
+    height: 500px;
+    text-align: center;
+    padding: 50px;
+  }
+  #people .carousel-item .carousel-img {
+    border-radius: 50%;
+    border: 5px solid #FF7F3F;
+    margin-bottom: 20px;
+  }
+  
+  #modules {
+    text-align: center;
+    margin-top: 20px;
+  }
+  #modules h1 {
+    padding: 20px;
+  }
+  #modules .accordion .accordion-button {
+    background-color: #FF7F3F;
+    color: white;
+  }
+  #modules .accordion .accordion-button:focus {
+    border-color: #FF7F3F !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 127, 63, 0.25);
+  }
+  #modules .accordion .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+  #modules .accordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+  
+  #cta {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  #cta .button {
+    background-color: #FF7F3F;
+    border: none;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 1441px) {
+    .container {
+      padding: 1.5% 7.5%;
+    }
+  
+    #homepage {
+      text-align: center;
+    }
+  
+    .navbar-brand {
+      margin-left: 38.5% !important;
+    }
+  
+    .down {
+      margin-left: 140px;
+    }
+  
+    .courses {
+      margin-top: -150px;
+    }
+  
+    .cards {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .card {
+      margin: 0px 200px;
+      width: 600px !important;
+    }
+  
+    .card-img-top {
+      width: 599px !important;
+    }
+  
+    .teacher-img {
+      margin-bottom: 20px;
+    }
+  
+    .teacher-p {
+      padding: 0 500px;
+    }
+  
+    .form {
+      width: 300px;
+      height: 25px;
+    }
+  
+    .user-name {
+      margin-left: -100px !important;
+    }
+  
+    .container {
+      padding: 0.5% 7.5%;
+    }
+  
+    .items {
+      position: relative;
+      left: 510px;
+    }
+  
+    .accordion {
+      margin-left: 31%;
+    }
+  
+    .accordion-item {
+      width: 700px;
+    }
+  
+    #story p {
+      padding: 0 100px;
+      width: 50%;
+      margin: auto;
+    }
+  
+    #experience {
+      text-align: center;
+    }
+  
+    .list {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+    }
+  
+    .list-item {
+      margin-top: 20px;
+      width: 400px;
+    }
+  
+    .cards-showcase {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .carousel-p {
+      padding: 0 500px;
+    }
+  
+    #explanation {
+      margin-top: 50px;
+    }
+  
+    #explanation p {
+      padding: 0 500px;
+    }
+  }
+  @media only screen and (min-width: 1025px) and (max-width: 1439px) {
+    .navbar-brand {
+      margin-left: 41% !important;
+    }
+  
+    .down {
+      margin-left: 6.5%;
+    }
+  
+    #story p {
+      padding: 0 250px;
+    }
+  
+    .list-item p {
+      padding: 0 400px;
+    }
+  
+    .courses {
+      margin-top: -100px;
+    }
+  
+    .cards {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .card {
+      margin: 0px 50px;
+      width: 600px !important;
+    }
+  
+    .card-img-top {
+      width: 599px !important;
+    }
+  
+    .teacher-p {
+      padding: 0 150px;
+    }
+  
+    .accordion {
+      margin-left: 25.5%;
+    }
+  
+    .accordion-item {
+      width: 700px;
+    }
+  
+    .form {
+      width: 300px;
+      height: 25px;
+    }
+  
+    .user-name {
+      margin-left: 0px !important;
+    }
+  
+    .container {
+      padding: -10% 7.5%;
+    }
+  
+    .items {
+      position: relative;
+      left: 410px;
+    }
+  
+    #explanation p {
+      padding: 0 300px;
+    }
+  }
+  @media only screen and (min-width: 441px) and (max-width: 1024px) {
+    .navbar-brand {
+      margin-left: 36.5% !important;
+    }
+  
+    .down {
+      margin-left: 4.75%;
+    }
+  
+    #story p {
+      padding: 0 150px;
+    }
+  
+    .list-item p {
+      padding: 0 200px;
+    }
+  
+    .form {
+      width: 300px;
+      height: 25px;
+    }
+  
+    .cards {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .card {
+      margin: 0px 50px;
+      width: 600px !important;
+    }
+  
+    .card-img-top {
+      width: 599px !important;
+    }
+  
+    .teacher-p {
+      padding: 0 150px;
+    }
+  
+    .accordion {
+      margin-left: 16%;
+    }
+  
+    .accordion-item {
+      width: 700px;
+    }
+  
+    .user-name {
+      margin-left: 160px !important;
+    }
+  
+    .container {
+      padding: -10% 7.5%;
+    }
+  
+    .items {
+      position: relative;
+      left: 110px;
+    }
+  }
+  
+
+  

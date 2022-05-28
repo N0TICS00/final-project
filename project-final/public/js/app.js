@@ -2164,11 +2164,15 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./components/Users */ "./resources/js/components/Users.js");
+__webpack_require__(/*! ./components/API/Users */ "./resources/js/components/API/Users.js");
 
-__webpack_require__(/*! ./components/Courses */ "./resources/js/components/Courses.js");
+__webpack_require__(/*! ./components/API/Courses */ "./resources/js/components/API/Courses.js");
+
+__webpack_require__(/*! ./components/API/Create */ "./resources/js/components/API/Create.js");
 
 __webpack_require__(/*! ./components/Home */ "./resources/js/components/Home.js");
+
+__webpack_require__(/*! ./components/partials/HomePartials */ "./resources/js/components/partials/HomePartials.js");
 
 /***/ }),
 
@@ -2203,10 +2207,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Courses.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Courses.js ***!
-  \********************************************/
+/***/ "./resources/js/components/API/Courses.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/API/Courses.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2320,10 +2324,10 @@ if (document.getElementById('courses')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Home.js":
-/*!*****************************************!*\
-  !*** ./resources/js/components/Home.js ***!
-  \*****************************************/
+/***/ "./resources/js/components/API/Create.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/API/Create.js ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2357,7 +2361,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-function Home() {
+function Create() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState({
     name: "",
     email: "",
@@ -2419,16 +2423,16 @@ function Home() {
   });
 }
 
-if (document.getElementById('home')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Home, {}), document.getElementById('home'));
+if (document.getElementById('create')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Create, {}), document.getElementById('create'));
 }
 
 /***/ }),
 
-/***/ "./resources/js/components/Users.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Users.js ***!
-  \******************************************/
+/***/ "./resources/js/components/API/Users.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/API/Users.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2539,6 +2543,305 @@ var Users = /*#__PURE__*/function (_React$Component) {
 if (document.getElementById('users')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Users, {}), document.getElementById('users'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Home.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/Home.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _partials_HomePartials__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/HomePartials */ "./resources/js/components/partials/HomePartials.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+function Home() {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState({
+    name: "",
+    email: "",
+    password: ""
+  }),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      state = _React$useState2[0],
+      setState = _React$useState2[1];
+
+  function handleChange(event) {
+    var value = event.target.value;
+    setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, event.target.name, value)));
+  }
+
+  function handleSubmit(event) {
+    console.log(state);
+    axios.post('api/users', {
+      name: state.name,
+      email: state.email,
+      password: state.password
+    }).then(function (response) {
+      console.log(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+    event.preventDefault();
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "App",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_partials_HomePartials__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  });
+}
+
+if (document.getElementById('home')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Home, {}), document.getElementById('home'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/partials/HomePartials.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/partials/HomePartials.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_calendly__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-calendly */ "./node_modules/react-calendly/dist/index.es.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function HomePartial() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("script", {
+      type: "text/javascript",
+      src: "https://assets.calendly.com/assets/external/widget.js"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("title", {
+      children: "Home"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      id: "home-page",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
+        className: "navbar ",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "container",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            className: "navbar-brand align-middle",
+            href: "/",
+            children: "dag's tech"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "Choose us for your formation"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: "btn button btn-lg",
+        href: "#form",
+        children: "Sign Up"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ion-icon", {
+        name: "chevron-down-outline",
+        className: "down"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      id: "story",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "Our Story"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "story-img-div",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: "assets/img/skyscraper.jpg",
+          alt: "SkyScraper",
+          className: "story-img"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: "Our company was founded in 2015 to meet people\u2019s need to learn the skills they need to make a career in the web world. Our founder, teacher Morrison, has decades of experience in web development and web application management. Our goal, in addition to teaching skills, is to bring people together to help each other in their work."
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      id: "experience",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "An experience that changes your life"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "list",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "list-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ion-icon", {
+            name: "laptop-outline",
+            className: "icon"
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            children: "Thanks to our courses, which will give you a solid foundation, you can aim for positions as a Junior Developer."
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "list-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ion-icon", {
+            name: "briefcase-outline",
+            className: "icon"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            children: "Our courses and related projects are job-oriented that will make you more attractive to companies."
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "list-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ion-icon", {
+            name: "videocam-outline",
+            className: "icon"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            children: "At the end of the course, there will be a special course for alumni that will consist in finding a job suitable for the skills developed and the goals of the person."
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      id: "discover",
+      children: ["@include('partials.flash')", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        children: "Discover all about our courses"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+        method: "POST",
+        action: "/news",
+        children: ["@csrf", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: "Subscribe to our newsletter! "
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          className: "form",
+          type: "email",
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "btn",
+            type: "submit",
+            children: "Submit"
+          })
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      className: "courses",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "Our Courses"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "cards",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "card",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "card-img-top",
+            id: "first-image"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "card-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
+              className: "card-title",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: "HTML & CSS"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+              className: "card-text",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+                children: "WHAT ARE HTML & CSS? "
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "They are the basis of the internet, everything you can find on the sites has been done with them. If you want to learn these superpowers, you are in the right place! They are the basis of the internet, everything you can find on the sites has been done with them.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+                children: "3 REASON TO LEARN HTML & CSS"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "Web development is one of the most future-proof and highest-paying industries in the world. And HTML and CSS is the entry point to this world!"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "Used in every sites of every Companies."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "Creative Work with them and their framework such as Bootstrap."
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                className: "btn",
+                href: "/roadmap/1",
+                children: "Course's Roadmap"
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "card",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "card-img-top",
+            id: "second-image"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "card-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
+              className: "card-title",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+                children: "JavaScript Basics"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+              className: "card-text",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+                children: "WHAT IS JAVASCRIPT? "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "JavaScript is one of the most popular programming languages in the world, and growing faster than any other programming language. As a developer, you can use JavaScript to build web and mobile apps, real-time networking apps, command-line tools, and games.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+                children: "4 REASONS TO LEARN JAVASCRIPT "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "JavaScript is a key tool for front-end, back-end, and full-stack developers."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "The average annual salary for a JavaScript developer is $72,000."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "Companies like Walmart, Netflix, and PayPal run big internal applications around JavaScript."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                  children: "Having strong JavaScript knowledge will help you land your dream job."
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+              className: "btn",
+              href: "/roadmap/2",
+              children: "Course's roadmap"
+            })]
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      id: "teacher",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "Meet the teacher"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        classNameName: "teacher",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          classNameName: "teacher-img",
+          src: "assets/img/teacher.jpg",
+          alt: "Warren Morrison"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          children: "Warren Morrison"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          classNameName: "teacher-p",
+          children: "Warren Morrison was born in 7/5/1970 in London. He discovered a passion for programming when he was 13. He attended Computer Science and got a job at Centure Inc. At the age of 25 he became Senior Full Stack Developer at the Renesas Company and thanks to this work he was able to find new stimuli, so much so that he could register a course."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_calendly__WEBPACK_IMPORTED_MODULE_0__.PopupWidget, {
+          url: "https://calendly.com/your_scheduling_page",
+          rootElement: document.getElementById("root"),
+          text: "Book a call with Mr. Morrison!",
+          textColor: "#ffffff",
+          color: "#FF7F3F"
+        })]
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePartial);
 
 /***/ }),
 
@@ -19957,6 +20260,356 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ "./node_modules/react-calendly/dist/index.es.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-calendly/dist/index.es.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "InlineWidget": () => (/* binding */ InlineWidget),
+/* harmony export */   "PopupButton": () => (/* binding */ PopupButton),
+/* harmony export */   "PopupModal": () => (/* binding */ Modal),
+/* harmony export */   "PopupWidget": () => (/* binding */ PopupWidget),
+/* harmony export */   "useCalendlyEventListener": () => (/* binding */ useCalendlyEventListener)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css = "/*\n  code is extracted from Calendly's embed stylesheet: https://assets.calendly.com/assets/external/widget.css\n*/\n\n.calendly-inline-widget,\n.calendly-inline-widget *,\n.calendly-badge-widget,\n.calendly-badge-widget *,\n.calendly-overlay,\n.calendly-overlay * {\n    font-size:16px;\n    line-height:1.2em\n}\n\n.calendly-inline-widget iframe,\n.calendly-badge-widget iframe,\n.calendly-overlay iframe {\n    display:inline;\n    width:100%;\n    height:100%\n}\n\n.calendly-popup-content {\n    position:relative\n}\n\n.calendly-popup-content.calendly-mobile {\n    -webkit-overflow-scrolling:touch;\n    overflow-y:auto\n}\n\n.calendly-overlay {\n    position:fixed;\n    top:0;\n    left:0;\n    right:0;\n    bottom:0;\n    overflow:hidden;\n    z-index:9999;\n    background-color:#a5a5a5;\n    background-color:rgba(31,31,31,0.4)\n}\n\n.calendly-overlay .calendly-close-overlay {\n    position:absolute;\n    top:0;\n    left:0;\n    right:0;\n    bottom:0\n}\n\n.calendly-overlay .calendly-popup {\n    box-sizing:border-box;\n    position:absolute;\n    top:50%;\n    left:50%;\n    -webkit-transform:translateY(-50%) translateX(-50%);\n    transform:translateY(-50%) translateX(-50%);\n    width:80%;\n    min-width:900px;\n    max-width:1000px;\n    height:90%;\n    max-height:680px\n}\n\n@media (max-width: 975px) {\n    .calendly-overlay .calendly-popup {\n        position:fixed;\n        top:50px;\n        left:0;\n        right:0;\n        bottom:0;\n        -webkit-transform:none;\n        transform:none;\n        width:100%;\n        height:auto;\n        min-width:0;\n        max-height:none\n    }\n}\n\n.calendly-overlay .calendly-popup .calendly-popup-content {\n    height:100%;\n}\n\n.calendly-overlay .calendly-popup-close {\n    position:absolute;\n    top:25px;\n    right:25px;\n    color:#fff;\n    width:19px;\n    height:19px;\n    cursor:pointer;\n    background:url(https://assets.calendly.com/assets/external/close-icon.svg) no-repeat;\n    background-size:contain\n}\n\n@media (max-width: 975px) {\n    .calendly-overlay .calendly-popup-close {\n        top:15px;\n        right:15px\n    }\n}\n\n.calendly-badge-widget {\n    position:fixed;\n    right:20px;\n    bottom:15px;\n    z-index:9998\n}\n\n.calendly-badge-widget .calendly-badge-content {\n    display:table-cell;\n    width:auto;\n    height:45px;\n    padding:0 30px;\n    border-radius:25px;\n    box-shadow:rgba(0,0,0,0.25) 0 2px 5px;\n    font-family:sans-serif;\n    text-align:center;\n    vertical-align:middle;\n    font-weight:bold;\n    font-size:14px;\n    color:#fff;\n    cursor:pointer\n}\n\n.calendly-badge-widget .calendly-badge-content.calendly-white {\n    color:#666a73\n}\n\n.calendly-badge-widget .calendly-badge-content span {\n    display:block;\n    font-size:12px\n}\n\n.calendly-spinner {\n    position:absolute;\n    top:50%;\n    left:0;\n    right:0;\n    -webkit-transform:translateY(-50%);\n    transform:translateY(-50%);\n    text-align:center;\n    z-index:-1\n}\n\n.calendly-spinner>div {\n    display:inline-block;\n    width:18px;\n    height:18px;\n    background-color:#e1e1e1;\n    border-radius:50%;\n    vertical-align:middle;\n    -webkit-animation:calendly-bouncedelay 1.4s infinite ease-in-out;\n    animation:calendly-bouncedelay 1.4s infinite ease-in-out;\n    -webkit-animation-fill-mode:both;\n    animation-fill-mode:both\n}\n\n.calendly-spinner .calendly-bounce1 {\n    -webkit-animation-delay:-0.32s;\n    animation-delay:-0.32s\n}\n\n.calendly-spinner .calendly-bounce2 {\n    -webkit-animation-delay:-0.16s;\n    animation-delay:-0.16s\n}\n\n@-webkit-keyframes calendly-bouncedelay {\n    0%,80%,100% {\n        -webkit-transform:scale(0);\n        transform:scale(0)\n    } \n    \n    40%{\n        -webkit-transform:scale(1);\n        transform:scale(1)\n    }\n}\n\n@keyframes calendly-bouncedelay{ \n    0%,80%,100% {\n        -webkit-transform:scale(0);\n        transform:scale(0)\n    }\n    \n    40% {\n        -webkit-transform:scale(1);\n        transform:scale(1)\n    }\n}";
+styleInject(css);
+
+var CalendlyEvent;
+(function (CalendlyEvent) {
+    CalendlyEvent["PROFILE_PAGE_VIEWED"] = "calendly.profile_page_viewed";
+    CalendlyEvent["EVENT_TYPE_VIEWED"] = "calendly.event_type_viewed";
+    CalendlyEvent["DATE_AND_TIME_SELECTED"] = "calendly.date_and_time_selected";
+    CalendlyEvent["EVENT_SCHEDULED"] = "calendly.event_scheduled";
+})(CalendlyEvent || (CalendlyEvent = {}));
+var formatCalendlyUrl = function (_a) {
+    var url = _a.url, _b = _a.prefill, prefill = _b === void 0 ? {} : _b, _c = _a.pageSettings, pageSettings = _c === void 0 ? {} : _c, _d = _a.utm, utm = _d === void 0 ? {} : _d, embedType = _a.embedType;
+    var backgroundColor = pageSettings.backgroundColor, hideEventTypeDetails = pageSettings.hideEventTypeDetails, hideLandingPageDetails = pageSettings.hideLandingPageDetails, primaryColor = pageSettings.primaryColor, textColor = pageSettings.textColor, hideGdprBanner = pageSettings.hideGdprBanner;
+    var customAnswers = prefill.customAnswers, date = prefill.date, email = prefill.email, firstName = prefill.firstName, guests = prefill.guests, lastName = prefill.lastName, location = prefill.location, name = prefill.name;
+    var utmCampaign = utm.utmCampaign, utmContent = utm.utmContent, utmMedium = utm.utmMedium, utmSource = utm.utmSource, utmTerm = utm.utmTerm;
+    var queryStringIndex = url.indexOf("?");
+    var hasQueryString = queryStringIndex > -1;
+    var queryString = url.slice(queryStringIndex + 1);
+    var baseUrl = hasQueryString ? url.slice(0, queryStringIndex) : url;
+    var updatedQueryString = [
+        hasQueryString ? queryString : null,
+        backgroundColor ? "background_color=" + backgroundColor : null,
+        hideEventTypeDetails ? "hide_event_type_details=1" : null,
+        hideLandingPageDetails ? "hide_landing_page_details=1" : null,
+        primaryColor ? "primary_color=" + primaryColor : null,
+        textColor ? "text_color=" + textColor : null,
+        hideGdprBanner ? "hide_gdpr_banner=1" : null,
+        name ? "name=" + encodeURIComponent(name) : null,
+        location ? "location=" + encodeURIComponent(location) : null,
+        firstName ? "first_name=" + encodeURIComponent(firstName) : null,
+        lastName ? "last_name=" + encodeURIComponent(lastName) : null,
+        guests ? "guests=" + guests.map(encodeURIComponent).join(",") : null,
+        email ? "email=" + encodeURIComponent(email) : null,
+        date && date instanceof Date ? "date=" + formatDate(date) : null,
+        utmCampaign ? "utm_campaign=" + encodeURIComponent(utmCampaign) : null,
+        utmContent ? "utm_content=" + encodeURIComponent(utmContent) : null,
+        utmMedium ? "utm_medium=" + encodeURIComponent(utmMedium) : null,
+        utmSource ? "utm_source=" + encodeURIComponent(utmSource) : null,
+        utmTerm ? "utm_term=" + encodeURIComponent(utmTerm) : null,
+        embedType ? "embed_type=" + embedType : null,
+        /*
+         * https://github.com/tcampb/react-calendly/pull/31
+         * embed_domain must be defined to receive messages from the Calendly iframe.
+         */
+        "embed_domain=1",
+    ]
+        .concat(customAnswers ? formatCustomAnswers(customAnswers) : [])
+        .filter(function (item) { return item !== null; })
+        .join("&");
+    return baseUrl + "?" + updatedQueryString;
+};
+var formatDate = function (d) {
+    var month = d.getMonth() + 1;
+    var day = d.getDate();
+    var year = d.getFullYear();
+    return [
+        year,
+        month < 10 ? "0" + month : month,
+        day < 10 ? "0" + day : day,
+    ].join("-");
+};
+var CUSTOM_ANSWER_PATTERN = /^a\d{1,2}$/;
+var formatCustomAnswers = function (customAnswers) {
+    var customAnswersFiltered = Object.keys(customAnswers).filter(function (key) {
+        return key.match(CUSTOM_ANSWER_PATTERN);
+    });
+    if (!customAnswersFiltered.length)
+        return [];
+    return customAnswersFiltered.map(function (key) { return key + "=" + encodeURIComponent(customAnswers[key]); });
+};
+
+var LoadingSpinner = /** @class */ (function (_super) {
+    __extends(LoadingSpinner, _super);
+    function LoadingSpinner() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LoadingSpinner.prototype.render = function () {
+        return ((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-spinner" },
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-bounce1" }),
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-bounce2" }),
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-bounce3" })));
+    };
+    return LoadingSpinner;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component));
+
+var defaultStyles = {
+    minWidth: "320px",
+    height: "630px",
+};
+var InlineWidget = /** @class */ (function (_super) {
+    __extends(InlineWidget, _super);
+    function InlineWidget(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            isLoading: true,
+        };
+        _this.onLoad = _this.onLoad.bind(_this);
+        return _this;
+    }
+    InlineWidget.prototype.onLoad = function () {
+        this.setState({
+            isLoading: false,
+        });
+    };
+    InlineWidget.prototype.render = function () {
+        var src = formatCalendlyUrl({
+            url: this.props.url,
+            pageSettings: this.props.pageSettings,
+            prefill: this.props.prefill,
+            utm: this.props.utm,
+            embedType: "Inline",
+        });
+        return ((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-inline-widget", style: this.props.styles || defaultStyles },
+            this.state.isLoading && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(LoadingSpinner, null),
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", { width: "100%", height: "100%", frameBorder: "0", title: this.props.iframeTitle || "Calendly Scheduling Page", onLoad: this.onLoad, src: src })));
+    };
+    return InlineWidget;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component));
+
+var ModalContent = /** @class */ (function (_super) {
+    __extends(ModalContent, _super);
+    function ModalContent(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            isLoading: true,
+        };
+        _this.onLoad = _this.onLoad.bind(_this);
+        return _this;
+    }
+    ModalContent.prototype.onLoad = function () {
+        this.setState({
+            isLoading: false,
+        });
+    };
+    ModalContent.prototype.render = function () {
+        var src = formatCalendlyUrl({
+            url: this.props.url,
+            pageSettings: this.props.pageSettings,
+            prefill: this.props.prefill,
+            utm: this.props.utm,
+            embedType: "PopupWidget",
+        });
+        return ((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+            this.state.isLoading && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(LoadingSpinner, null),
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", { width: "100%", height: "100%", frameBorder: "0", title: this.props.iframeTitle || "Calendly Scheduling Page", onLoad: this.onLoad, src: src })));
+    };
+    return ModalContent;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component));
+
+var Modal = (function (props) {
+    if (!props.open)
+        return null;
+    return (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-overlay" },
+        (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { onClick: props.onModalClose, className: "calendly-close-overlay" }),
+        (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-popup" },
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-popup-content" },
+                (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ModalContent, __assign({}, props)))),
+        (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", { className: "calendly-popup-close", onClick: props.onModalClose, "aria-label": "Close modal", style: {
+                display: "block",
+                border: "none",
+                padding: 0,
+            } })), props.rootElement);
+});
+
+var PopupButton = /** @class */ (function (_super) {
+    __extends(PopupButton, _super);
+    function PopupButton(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            isOpen: false,
+        };
+        _this.onClick = _this.onClick.bind(_this);
+        _this.onClose = _this.onClose.bind(_this);
+        return _this;
+    }
+    PopupButton.prototype.onClick = function (e) {
+        e.preventDefault();
+        this.setState({
+            isOpen: true,
+        });
+    };
+    PopupButton.prototype.onClose = function (e) {
+        e.stopPropagation();
+        this.setState({
+            isOpen: false,
+        });
+    };
+    PopupButton.prototype.render = function () {
+        return ((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", { onClick: this.onClick, style: this.props.styles || {}, className: this.props.className || "" }, this.props.text),
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Modal, __assign({}, this.props, { open: this.state.isOpen, onModalClose: this.onClose, rootElement: this.props.rootElement }))));
+    };
+    return PopupButton;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component));
+
+var PopupWidget = /** @class */ (function (_super) {
+    __extends(PopupWidget, _super);
+    function PopupWidget(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            isOpen: false,
+        };
+        _this.onClick = _this.onClick.bind(_this);
+        _this.onClose = _this.onClose.bind(_this);
+        return _this;
+    }
+    PopupWidget.prototype.onClick = function () {
+        this.setState({
+            isOpen: true,
+        });
+    };
+    PopupWidget.prototype.onClose = function (e) {
+        e.stopPropagation();
+        this.setState({
+            isOpen: false,
+        });
+    };
+    PopupWidget.prototype.render = function () {
+        return ((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-badge-widget", onClick: this.onClick },
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", { className: "calendly-badge-content", style: {
+                    background: this.props.color || "#00a2ff",
+                    color: this.props.textColor || "#ffffff",
+                } },
+                this.props.text || "Schedule time with me",
+                this.props.branding && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "powered by Calendly")),
+            (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Modal, __assign({}, this.props, { open: this.state.isOpen, onModalClose: this.onClose, rootElement: this.props.rootElement }))));
+    };
+    return PopupWidget;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component));
+
+var EVENT_NAME = "message";
+function useCalendlyEventListener(eventHandlers) {
+    var _a = eventHandlers || {}, onDateAndTimeSelected = _a.onDateAndTimeSelected, onEventScheduled = _a.onEventScheduled, onEventTypeViewed = _a.onEventTypeViewed, onProfilePageViewed = _a.onProfilePageViewed;
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+        var onMessage = function (e) {
+            var eventName = e.data.event;
+            if (eventName === CalendlyEvent.DATE_AND_TIME_SELECTED) {
+                onDateAndTimeSelected && onDateAndTimeSelected(e);
+            }
+            else if (eventName === CalendlyEvent.EVENT_SCHEDULED) {
+                onEventScheduled && onEventScheduled(e);
+            }
+            else if (eventName === CalendlyEvent.EVENT_TYPE_VIEWED) {
+                onEventTypeViewed && onEventTypeViewed(e);
+            }
+            else if (eventName === CalendlyEvent.PROFILE_PAGE_VIEWED) {
+                onProfilePageViewed && onProfilePageViewed(e);
+            }
+        };
+        window.addEventListener(EVENT_NAME, onMessage);
+        return function cleanup() {
+            window.removeEventListener(EVENT_NAME, onMessage);
+        };
+    }, [eventHandlers]);
+}
+
+
+//# sourceMappingURL=index.es.js.map
 
 
 /***/ }),

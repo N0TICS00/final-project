@@ -9,7 +9,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="../">
-    <div id="users"></div>
+    <div id="create"></div>
 </body>
 </html>

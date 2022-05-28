@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HomePartial from './partials/HomePartials';
 const axios = require('axios');
 function Home (){
     const [state, setState] = React.useState({
@@ -31,36 +32,7 @@ function Home (){
       }
       return (
         <div className="App">
-          <form onSubmit={handleSubmit}>
-            <label>
-              Name
-              <input
-                type="text"
-                name="name"
-                value={state.name}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Email
-              <input
-                type="text"
-                name="email"
-                value={state.email}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Password
-              <input
-                type="text"
-                name="password"
-                value={state.password}
-                onChange={handleChange}
-              />
-            </label>
-            <button type="submit">Submit</button>
-        </form>
+           <HomePartial/>
 
         </div>
       );
