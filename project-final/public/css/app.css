@@ -149,7 +149,7 @@
     position: relative;
     height: 975px;
     color: white;
-    background-image: url("/assets/img/photo-home.jpg");
+    background-image: url(/images/photo-home.jpg?62593210fe4d8ac4a4d6b0f67737d56f);
     background-size: cover;
   }
   #home-page h1 {
@@ -258,10 +258,10 @@
     opacity: 0.45;
   }
   .courses .card #first-image {
-    background-image: url("/assets/img/html-css.jpg");
+    background-image: url(/images/html-css.jpg?f7a70713b9562619caa1d2ee904c04d9);
   }
   .courses .card #second-image {
-    background-image: url("/assets/img/js-basics.jpg");
+    background-image: url(/images/js-basics.jpg?c5f0450b5ceb0d7d86211359fa25ee6e);
   }
   
   #teacher {

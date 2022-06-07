@@ -131,7 +131,7 @@
     position: relative;
     height: 975px;
     color: white;
-    background-image: url("/assets/img/photo-home.jpg");
+    background-image: url("../img/photo-home.jpg");
     background-size: cover;
   }
   #home-page h1 {
@@ -240,10 +240,10 @@
     opacity: 0.45;
   }
   .courses .card #first-image {
-    background-image: url("/assets/img/html-css.jpg");
+    background-image: url("../img/html-css.jpg");
   }
   .courses .card #second-image {
-    background-image: url("/assets/img/js-basics.jpg");
+    background-image: url("../img/js-basics.jpg");
   }
   
   #teacher {

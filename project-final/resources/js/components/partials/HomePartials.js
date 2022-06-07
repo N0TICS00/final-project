@@ -1,5 +1,6 @@
-import { PopupWidget } from "react-calendly";
-
+import { InlineWidget } from "react-calendly";
+import skyscraper from "../../../img/skyscraper.jpg";
+import teacher from "../../../img/teacher.jpg"
 function HomePartial() {
     return(
         
@@ -21,7 +22,7 @@ function HomePartial() {
                 <section id="story">
                     <h1>Our Story</h1>
                     <div className="story-img-div">
-                    <img src="assets/img/skyscraper.jpg" alt="SkyScraper" className="story-img"/>
+                    <img src={skyscraper} alt="SkyScraper" className="story-img"/>
                     </div>
                         <p>Our company was founded in 2015 to meet people’s need to learn the skills they need to make a career in the web world. Our founder, teacher Morrison, has decades of experience in web development and web application management. Our goal, in addition to teaching skills, is to bring people together to help each other in their work.</p>
                 </section>
@@ -97,23 +98,80 @@ function HomePartial() {
 </section>
 <section id="teacher">
     <h1>Meet the teacher</h1>
-    <div classNameName="teacher">
-        <img classNameName="teacher-img" src="assets/img/teacher.jpg" alt="Warren Morrison"/>
-        <h1>Warren Morrison</h1>
-        <p classNameName="teacher-p">Warren Morrison was born in 7/5/1970 in London.
+    <div className="teacher">
+        <img className="teacher-img" src={teacher} alt="Warren Morrison"/>
+        <h3>Warren Morrison</h3>
+        <p className="teacher-p">Warren Morrison was born in 7/5/1970 in London.
             He discovered a passion for programming when he was 13. He attended Computer Science and got a job at Centure Inc. At the age of 25 he became Senior Full Stack Developer at the Renesas Company and thanks to this work he was able to find new stimuli, so much so that he could register a course.</p>
-       
-            <PopupWidget
-        url="https://calendly.com/your_scheduling_page"
-        rootElement={document.getElementById("root")}
-        text="Book a call with Mr. Morrison!"
-        textColor="#ffffff"
-        color="#FF7F3F"
-      />
+        
+        
     </div>
 </section>
+<section id="booking">
+    <div>
+        <h1>Book a call with Mr. Morrison</h1>
+    <InlineWidget url="https://calendly.com/notics-pro/30min" />
+    </div>
+</section>
+<section id="form">
+    <h1>Subscribe to our platform </h1>
+    <div className="form-div">
+        <form action="/register" method="POST">
 
+            <p>
+            <label>
+                <h5>Name</h5>
+                <input type="text" name="name" className="form"required/>
+            </label>
+            </p>
+            <p>
+            <label>
+                <h5>Email</h5>
+                <input type="email" name="email" className="form"required/>
+            </label>
+            </p>
+            <p>
+            <label>
+                <h5>Password</h5>
+                <input type="password" name="password" className="form" required/>
+            </label>
+            
+            </p>
+            <div className="buttons">
+            <p>
+            <button type="submit" className="btn">Sign Up</button>
+            <p>or</p>
+            <a href="/login">Login</a>
+            </p>
             </div>
+        </form>
+    </div>
+</section>
+<section>
+<div>
+        <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g className="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,127,63,0.7)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,127,63,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,127,63,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#ff7f3f" />
+            </g>
+        </svg>
+    </div>
+
+<footer className="page-footer font-small unique-color-dark pt-4">
+  <div className="container">
+  <div className="footer-copyright text-center py-3" style="color:white"><h7>© 2022 Copyright:</h7>
+    <h7> dag's tech</h7>
+  </div>
+  </div>
+</footer>
+</section>
+</div>
+
     )
  
 }
