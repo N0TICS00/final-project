@@ -1,7 +1,41 @@
 import { InlineWidget } from "react-calendly";
 import skyscraper from "../../../img/skyscraper.jpg";
-import teacher from "../../../img/teacher.jpg"
+import teacher from "../../../img/teacher.jpg";
+import React from 'react';
+const axios = require('axios');
 function HomePartial() {
+    const [state, setState] = React.useState({
+        name: "",
+        email: "",
+        password:"",
+      });
+    const [error, setError] = React.useState({
+        message:""
+    })
+      function handleChange(event) {
+        const value = event.target.value;
+        setState({
+          ...state,
+          [event.target.name]: value,
+        });
+        console.log(state)
+       
+      }
+      function handleSubmit(event){
+        console.log(state)
+        axios.post('api/users',{
+            name: state.name,
+            email: state.email,
+            password: state.password
+        }).then((response)=>{
+            console.log(response.data)
+            this.props.history.push('/course/courses')
+        }).catch((err)=>{
+            console.log(err)
+            setError(err)
+        })
+        event.preventDefault()
+      }
     return(
         
         <div>
@@ -17,7 +51,7 @@ function HomePartial() {
                     </nav>
                     <h1>Choose us for your formation</h1>
                     <a className="btn button btn-lg" href="#form">Sign Up</a>
-                    <ion-icon name="chevron-down-outline" className="down"></ion-icon>
+                    
                 </section>
                 <section id="story">
                     <h1>Our Story</h1>
@@ -42,18 +76,6 @@ function HomePartial() {
     </div>
   </div>
 
-</section>
-<section id="discover">
-  @include('partials.flash')
-  <h2>Discover all about our courses</h2>
-  <form method="POST" action="/news">
-    @csrf
-    <p>Subscribe to our newsletter! </p>
-    <input className="form" type="email" required/>
-    <p>
-    <button className="btn" type="submit">Submit</button>
-    </p>
-  </form>
 </section>
 <section className="courses">
     <h1>Our Courses</h1>
@@ -116,24 +138,45 @@ function HomePartial() {
 <section id="form">
     <h1>Subscribe to our platform </h1>
     <div className="form-div">
-        <form action="/register" method="POST">
+        {
+            (error.message !== "") ? <h4>There's an error. Try again!</h4> : <div></div>
+        }
+        <form onSubmit={handleSubmit} method="POST">
 
             <p>
             <label>
                 <h5>Name</h5>
-                <input type="text" name="name" className="form"required/>
+                <input 
+                type="text" 
+                name="name" 
+                className="form" 
+                onChange={handleChange} 
+                value={state.name} 
+                required/>
             </label>
             </p>
             <p>
             <label>
                 <h5>Email</h5>
-                <input type="email" name="email" className="form"required/>
+                <input
+                 type="email" 
+                 name="email" 
+                 className="form" 
+                 onChange={handleChange} 
+                 value={state.email} 
+                 required/>
             </label>
             </p>
             <p>
             <label>
                 <h5>Password</h5>
-                <input type="password" name="password" className="form" required/>
+                <input 
+                type="password" 
+                name="password" 
+                className="form" 
+                onChange={handleChange} 
+                value={state.password} 
+                required/>
             </label>
             
             </p>
@@ -147,29 +190,7 @@ function HomePartial() {
         </form>
     </div>
 </section>
-<section>
-<div>
-        <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-            <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-            </defs>
-            <g className="parallax">
-                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,127,63,0.7)" />
-                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,127,63,0.5)" />
-                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,127,63,0.3)" />
-                <use xlink:href="#gentle-wave" x="48" y="7" fill="#ff7f3f" />
-            </g>
-        </svg>
-    </div>
 
-<footer className="page-footer font-small unique-color-dark pt-4">
-  <div className="container">
-  <div className="footer-copyright text-center py-3" style="color:white"><h7>© 2022 Copyright:</h7>
-    <h7> dag's tech</h7>
-  </div>
-  </div>
-</footer>
-</section>
 </div>
 
     )

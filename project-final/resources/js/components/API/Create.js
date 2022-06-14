@@ -18,7 +18,7 @@ function Create (){
       }
       function handleSubmit(event){
         console.log(state)
-        axios.post('api/users',{
+        axios.post('/api/users',{
             name: state.name,
             email: state.email,
             password: state.password
