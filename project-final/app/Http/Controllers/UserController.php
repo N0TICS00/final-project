@@ -16,4 +16,18 @@ class UserController extends Controller
         $deletedUser = User::find($id)->delete();
         return response()->json(null,204);
     }
+    public function login(Request $req){
+        $userInfo = User::where('email', '=', $req->email)->first();
+        if(!$userInfo){
+            return back()->with('error' ,'Wrong Password or Wrong Email');
+        }
+        else{
+            if($req->password== $userInfo->password){
+                $req->session()->put('user', $userInfo);
+                return redirect("overview");
+            }else{
+                return back()->with('error' ,'Wrong Password or Wrong Email');
+            }
+        }
+    }
 }
