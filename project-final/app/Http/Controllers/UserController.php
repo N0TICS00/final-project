@@ -17,17 +17,16 @@ class UserController extends Controller
         return response()->json(null,204);
     }
     public function login(Request $req){
+
         $userInfo = User::where('email', '=', $req->email)->first();
-        if(!$userInfo){
-            return back()->with('error' ,'Wrong Password or Wrong Email');
-        }
-        else{
-            if($req->password== $userInfo->password){
-                $req->session()->put('user', $userInfo);
-                return redirect("overview");
-            }else{
-                return back()->with('error' ,'Wrong Password or Wrong Email');
+        if($userInfo){
+            if($userInfo->password == $req->password){
+                return response()->json($userInfo,200);
+            }
+            else{
+                return response()->json("Incorrect Email or Password",400);
             }
         }
+        
     }
 }
