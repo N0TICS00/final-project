@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 const axios = require('axios');
 function LoginPartial (){
     const [state, setState] = React.useState({
@@ -10,6 +11,7 @@ function LoginPartial (){
     const [error, setError] = React.useState({
         message:""
     })
+
       function handleChange(event) {
         const value = event.target.value;
         setState({
@@ -20,18 +22,19 @@ function LoginPartial (){
        
       }
       function handleSubmit(event){
-        console.log(state)
+        console.log(state.email, state.password)
         axios.post('api/users/login',{
             email: state.email,
             password: state.password
-        }).then((response)=>{
-            console.log(response.data)
-           
-        }).catch((err)=>{
-            console.log(err)
-            setError(err)
-        })
+        }).then(
+            response=>{
+                localStorage.setItem('user', JSON.stringify(response.data.user))
+                document.location.href = '/courses/'
+
+            }
+        )
         event.preventDefault()
+    
       }
     
 
@@ -40,9 +43,9 @@ function LoginPartial (){
             <div>
                 <div class="login">
                     <section id="form">
-                        <h1>Login to our platform  </h1>
+                        <h1>Login to our platform</h1>
                         <div class="form-div">
-                            <form onSubmit={handleSubmit} method="POST">
+                        <form onSubmit={handleSubmit} method="POST">
                                 <p>
                                     <label>
                                         <h5>Email</h5>
@@ -52,12 +55,12 @@ function LoginPartial (){
                             <p>
                                 <label>
                                     <h5>Password</h5>
-                                    <input type="password" name="password" class="form" onChange={handleChange} required/>
+                                    <input type="password" name="password" class="form" onChange={handleChange}  required/>
                                 </label>
                             </p>
                             <div class="buttons">
                                 <p>
-                                    <button type="submit" class="btn">Login</button>
+                                    <button type="submit" class="btn" onClick={handleSubmit}>Login</button>
                                     <p>or</p>
                                     <a href="/">Back to Home</a>
                                 </p>

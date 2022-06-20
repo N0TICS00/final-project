@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function index(){
@@ -17,16 +18,15 @@ class UserController extends Controller
         return response()->json(null,204);
     }
     public function login(Request $req){
+            $email = $req->input('email');
+            $password= $req->input('password');
 
-        $userInfo = User::where('email', '=', $req->email)->first();
-        if($userInfo){
-            if($userInfo->password == $req->password){
-                return response()->json($userInfo,200);
+            $user = User::where('email',$email)->first();
+            if($password == $user->password){
+                return response()->json(["user"=> $user],200);
             }
             else{
-                return response()->json("Incorrect Email or Password",400);
+                return response()->json(["error"=>"Email or password is not matched"],400);;
             }
-        }
-        
     }
 }

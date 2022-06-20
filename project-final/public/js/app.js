@@ -2684,8 +2684,6 @@ function HomePartial() {
   }
 
   function handleSubmit(event) {
-    var _this = this;
-
     console.log(state);
     axios.post('api/users', {
       name: state.name,
@@ -2693,8 +2691,7 @@ function HomePartial() {
       password: state.password
     }).then(function (response) {
       console.log(response.data);
-
-      _this.props.history.push('/course/courses');
+      document.location.href = '/courses/';
     })["catch"](function (err) {
       console.log(err);
       setError(err);
@@ -3013,15 +3010,13 @@ function LoginPartial() {
   }
 
   function handleSubmit(event) {
-    console.log(state);
+    console.log(state.email, state.password);
     axios.post('api/users/login', {
       email: state.email,
       password: state.password
     }).then(function (response) {
-      console.log(response.data);
-    })["catch"](function (err) {
-      console.log(err);
-      setError(err);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      document.location.href = '/courses/';
     });
     event.preventDefault();
   }
@@ -3032,7 +3027,7 @@ function LoginPartial() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         id: "form",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-          children: "Login to our platform  "
+          children: "Login to our platform"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           "class": "form-div",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
@@ -3068,6 +3063,7 @@ function LoginPartial() {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                   type: "submit",
                   "class": "btn",
+                  onClick: handleSubmit,
                   children: "Login"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                   children: "or"

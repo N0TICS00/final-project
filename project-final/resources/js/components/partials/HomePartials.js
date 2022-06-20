@@ -2,6 +2,7 @@ import { InlineWidget } from "react-calendly";
 import skyscraper from "../../../img/skyscraper.jpg";
 import teacher from "../../../img/teacher.jpg";
 import React from 'react';
+
 const axios = require('axios');
 function HomePartial() {
     const [state, setState] = React.useState({
@@ -12,6 +13,7 @@ function HomePartial() {
     const [error, setError] = React.useState({
         message:""
     })
+
       function handleChange(event) {
         const value = event.target.value;
         setState({
@@ -29,7 +31,8 @@ function HomePartial() {
             password: state.password
         }).then((response)=>{
             console.log(response.data)
-            this.props.history.push('/course/courses')
+            document.location.href = '/courses/'
+
         }).catch((err)=>{
             console.log(err)
             setError(err)
