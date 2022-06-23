@@ -28,7 +28,8 @@ function LoginPartial (){
             password: state.password
         }).then(
             response=>{
-                localStorage.setItem('user', JSON.stringify(response.data.user))
+                console.log(response.data.user.name)
+                localStorage.setItem('user', response.data.user.name)
                 document.location.href = '/courses/'
 
             }
