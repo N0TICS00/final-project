@@ -1,41 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-const axios = require('axios');
 function CoursesPartial (){
-    const [state, setState] = React.useState({
 
-        email: "",
-        password:"",
-      });
-    const [error, setError] = React.useState({
-        message:""
-    })
-
-      function handleChange(event) {
-        const value = event.target.value;
-        setState({
-          ...state,
-          [event.target.name]: value,
-        });
-        console.log(state)
-       
-      }
-      function handleSubmit(event){
-        console.log(state.email, state.password)
-        axios.post('api/users/login',{
-            email: state.email,
-            password: state.password
-        }).then(
-            response=>{
-                localStorage.setItem('user', response.data.user)
-                document.location.href = '/courses/'
-
-            }
-        )
-        event.preventDefault()
-    
-      }
     
 
 

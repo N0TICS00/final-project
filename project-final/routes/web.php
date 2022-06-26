@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\EnsureTokenIsValid;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/users', function () {
     return view('user/users');
 });
-Route::get('/courses', function(){
-    return view('course/courses');
-});
+
 Route::get('/users/create', function(){
     return view('user/create');
 });
@@ -32,5 +30,15 @@ Route::get('/login', function(){
 });
 Route::get('/faq', function(){
     return view('course/faq');
+});
+
+Route::middleware([EnsureTokenIsValid::class])->group(function () {
+    Route::get('/logout', function(){
+        return view('course/logout');
+    });
+    Route::get('/courses', function(){
+        return view('course/courses');
+    });
+    
 });
 

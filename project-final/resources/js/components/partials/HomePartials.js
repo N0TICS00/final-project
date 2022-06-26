@@ -24,6 +24,15 @@ function HomePartial() {
        
       }
       function handleSubmit(event){
+        function setCookie(name,value,days){
+            var expires = "";
+            if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+            }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
         console.log(state)
         axios.post('api/users',{
             name: state.name,
@@ -31,8 +40,11 @@ function HomePartial() {
             password: state.password
         }).then((response)=>{
             console.log(response.data)
+            localStorage.setItem('user', response.data.name)
+            let user = localStorage.getItem('user')
+            setCookie('user', user, 1)
             document.location.href = '/courses/'
-
+            
         }).catch((err)=>{
             console.log(err)
             setError(err)

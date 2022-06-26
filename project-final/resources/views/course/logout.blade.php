@@ -15,7 +15,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-    <div id="faq">
+    <div id="logout">
         
     </div>
 </body>

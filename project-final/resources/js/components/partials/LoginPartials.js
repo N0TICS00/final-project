@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const axios = require('axios');
 function LoginPartial (){
@@ -8,10 +7,9 @@ function LoginPartial (){
         email: "",
         password:"",
       });
-    const [error, setError] = React.useState({
-        message:""
-    })
+     
 
+    
       function handleChange(event) {
         const value = event.target.value;
         setState({
@@ -22,18 +20,31 @@ function LoginPartial (){
        
       }
       function handleSubmit(event){
+        function setCookie(name,value,days){
+            var expires = "";
+            if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+            }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
         console.log(state.email, state.password)
         axios.post('api/users/login',{
             email: state.email,
             password: state.password
         }).then(
             response=>{
+              
                 console.log(response.data.user.name)
                 localStorage.setItem('user', response.data.user.name)
+                let user = localStorage.getItem('user')
+                setCookie('user', user, 1)
                 document.location.href = '/courses/'
 
             }
         )
+        
         event.preventDefault()
     
       }
