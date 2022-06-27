@@ -31,7 +31,9 @@ Route::get('/login', function(){
 Route::get('/faq', function(){
     return view('course/faq');
 });
-
+Route::get('/courses/admin', function(){
+    return view('/course/admin');
+});
 Route::middleware([EnsureTokenIsValid::class])->group(function () {
     Route::get('/logout', function(){
         return view('course/logout');
