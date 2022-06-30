@@ -14,3 +14,4 @@ require('./components/partials/CoursesPartials')
 require('./components/partials/FaqPartials')
 require('./components/partials/LogoutPartials')
 require('./components/partials/AdminPartials')
+

@@ -24,7 +24,7 @@ class Courses extends React.Component{
     }
     renderProducts(){
         return this.state.courses.map(course=>{
-            return <li key={course.id}><p>{course.name}</p> <button onClick={()=>this.deleteCourse(course.id)}>Delete</button></li>
+            return <li key={course.id}><p>Name: {course.name}</p><p>Description: {course.description}</p> <p>Creator: {course.creator}</p></li>
         })
     }
     
@@ -32,14 +32,14 @@ class Courses extends React.Component{
 
         return(
             <div>
-                <ul>
+                <ol>
                     {this.renderProducts()}
-                </ul>
+                </ol>
             </div>
         )
     }
 }
 
-if (document.getElementById('courses')) {
-    ReactDOM.render(<Courses />, document.getElementById('courses'));
+if (document.getElementById('list')) {
+    ReactDOM.render(<Courses />, document.getElementById('list'));
 }

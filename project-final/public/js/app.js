@@ -2309,17 +2309,14 @@ var Courses = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderProducts",
     value: function renderProducts() {
-      var _this3 = this;
-
       return this.state.courses.map(function (course) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: course.name
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            onClick: function onClick() {
-              return _this3.deleteCourse(course.id);
-            },
-            children: "Delete"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            children: ["Name: ", course.name]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            children: ["Description: ", course.description]
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            children: ["Creator: ", course.creator]
           })]
         }, course.id);
       });
@@ -2328,7 +2325,7 @@ var Courses = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ol", {
           children: this.renderProducts()
         })
       });
@@ -2338,8 +2335,8 @@ var Courses = /*#__PURE__*/function (_React$Component) {
   return Courses;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
-if (document.getElementById('courses')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Courses, {}), document.getElementById('courses'));
+if (document.getElementById('list')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Courses, {}), document.getElementById('list'));
 }
 
 /***/ }),
@@ -2823,6 +2820,7 @@ function AdminPartial() {
       creator: state.creator
     }).then(function (response) {
       console.log(response.data);
+      document.location.href = '/api/courses';
     });
     event.preventDefault();
   }
@@ -2830,7 +2828,7 @@ function AdminPartial() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
       onSubmit: handleSubmit,
-      className: "form-div",
+      className: "form-admin",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
           type: "text",

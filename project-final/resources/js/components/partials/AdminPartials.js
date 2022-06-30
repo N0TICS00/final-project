@@ -27,6 +27,8 @@ function AdminPartial (){
             creator: state.creator,
         }).then(response=>{
             console.log(response.data)
+            document.location.href = '/api/courses'
+
         })
 
         event.preventDefault()
@@ -37,7 +39,7 @@ function AdminPartial (){
         return(
             <div> 
                 
-                <form onSubmit={handleSubmit} className="form-div">
+                <form onSubmit={handleSubmit} className="form-admin">
                     <p><input type="text" placeholder='Insert course name' name="name" onChange={handleChange} required/></p>
                     <p><input type="text" placeholder='Insert description' name="description" onChange={handleChange} required/></p>
                     <p><input type="text" placeholder="Insert creator" name="creator" onChange={handleChange} required/></p>
