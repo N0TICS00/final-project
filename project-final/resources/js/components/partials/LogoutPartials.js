@@ -7,12 +7,13 @@ function LogoutPartial (){
             document.cookie = name+'=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';  
         }
         eraseCookie('user')        
+        document.location.href = '/'
     }
     
         return(
             <div>
                 <form onSubmit={handleSubmit}>
-                    <button type="submit" className="btn" onClick={handleSubmit}>Do you want to logout?</button>
+                    <a onClick={handleSubmit} class="btn">Do you want to logout?</a>
                 </form>
  
             </div>

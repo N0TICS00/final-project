@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureTokenIsValid;
+use App\Http\Middleware\CheckAdmin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,12 +32,7 @@ Route::get('/login', function(){
 Route::get('/faq', function(){
     return view('course/faq');
 });
-Route::get('/courses/admin', function(){
-    return view('/course/admin');
-});
-Route::get('/courses/list', function(){
-    return view('/course/list');
-});
+
 Route::middleware([EnsureTokenIsValid::class])->group(function () {
     Route::get('/logout', function(){
         return view('course/logout');
@@ -45,5 +41,13 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
         return view('course/courses');
     });
     
+});
+Route::middleware([CheckAdmin::class])->group(function(){
+    Route::get('/courses/admin', function(){
+        return view('/course/admin');
+    });
+    Route::get('/courses/list', function(){
+        return view('/course/list');
+    });
 });
 

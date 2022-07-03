@@ -53,7 +53,7 @@ function CoursesPartial (){
 
             </ul>
             </p>
-            <a href="/courses/1" class="btn ">Go to HTML & CSS</a>
+            
     </div>
     </div>
     
@@ -71,7 +71,7 @@ function CoursesPartial (){
                 <li>Having strong JavaScript knowledge will help you land your dream job.</li>
             </ul>
 </p>
-            <a href="/courses/2" class="btn ">Go to JavaScript Basics </a>
+            
 
  
 

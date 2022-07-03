@@ -2980,10 +2980,6 @@ function CoursesPartial() {
                   children: "Creative Work with them and their framework such as Bootstrap."
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              href: "/courses/1",
-              "class": "btn ",
-              children: "Go to HTML & CSS"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -3015,10 +3011,6 @@ function CoursesPartial() {
                   children: "Having strong JavaScript knowledge will help you land your dream job."
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              href: "/courses/2",
-              "class": "btn ",
-              children: "Go to JavaScript Basics "
             })]
           })]
         })]
@@ -3679,15 +3671,15 @@ function LogoutPartial() {
     }
 
     eraseCookie('user');
+    document.location.href = '/';
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       onSubmit: handleSubmit,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-        type: "submit",
-        className: "btn",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
         onClick: handleSubmit,
+        "class": "btn",
         children: "Do you want to logout?"
       })
     })
